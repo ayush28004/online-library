@@ -1,0 +1,16 @@
+# Online Library
+
+A React + Vite project for managing an online library system.
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
