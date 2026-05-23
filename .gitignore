@@ -1,16 +1,38 @@
-# Online Library
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
 
-A React + Vite project for managing an online library system.
+# Build outputs
+dist/
+build/
 
-## Getting Started
+# Vite
+.vite/
 
-```bash
-npm install
-npm run dev
-```
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-## Build
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
 
-```bash
-npm run build
-```
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Development
+.parcel-cache
+.cache
