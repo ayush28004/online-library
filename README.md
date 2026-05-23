@@ -2,6 +2,8 @@
 
 A complete React + Vite online library application with book browsing, searching, and management features.
 
+Github repo - https://github.com/ayush28004/online-library
+
 ## Features
 
 ✅ **Home Page**
@@ -65,32 +67,6 @@ npm run dev
 
 The application will be available at `http://localhost:5173`
 
-### Build for Production
-
-```bash
-npm run build
-```
-
-## Project Structure
-
-```
-src/
-├── components/
-│   ├── Navigation.jsx
-│   └── BookCard.jsx
-├── pages/
-│   ├── Home.jsx
-│   ├── BrowseBooks.jsx
-│   ├── BookDetails.jsx
-│   ├── AddBook.jsx
-│   └── NotFound.jsx
-├── redux/
-│   ├── store.js
-│   └── booksSlice.js
-├── App.jsx
-├── main.jsx
-└── index.css
-```
 
 ## Routes
 
@@ -99,13 +75,3 @@ src/
 - `/book/:id` - Book details page
 - `/add-book` - Add new book form
 - `*` - 404 Not Found page
-
-## Requirements Fulfilled
-
-✅ **Vite React Setup** - Project initialized with Vite
-✅ **Home Page (15 marks)** - Welcome, categories, popular books, navigation
-✅ **Browse Books (20 marks)** - Category filtering, dynamic routing, search
-✅ **Book Details (15 marks)** - Dynamic route, full info, back button
-✅ **Add Book (30 marks)** - Form, validation, Redux, redirect
-✅ **404 Page (5 marks)** - Error page with URL display, no header
-✅ **Styling (5 marks)** - Tailwind CSS, responsive design
