@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Navigation from '../components/Navigation'
+import BookCard from '../components/BookCard'
 
 function Home() {
   const categories = ['Fiction', 'Non-Fiction', 'Sci-Fi', 'Mystery', 'Romance', 'Biography']
@@ -29,6 +30,30 @@ function Home() {
       category: 'Sci-Fi',
       rating: 4.6,
       cover: 'https://via.placeholder.com/200x300?text=Dune'
+    },
+    {
+      id: '4',
+      title: '1984',
+      author: 'George Orwell',
+      category: 'Fiction',
+      rating: 4.4,
+      cover: 'https://via.placeholder.com/200x300?text=1984'
+    },
+    {
+      id: '5',
+      title: 'Cosmos',
+      author: 'Carl Sagan',
+      category: 'Non-Fiction',
+      rating: 4.8,
+      cover: 'https://via.placeholder.com/200x300?text=Cosmos'
+    },
+    {
+      id: '6',
+      title: 'Foundation',
+      author: 'Isaac Asimov',
+      category: 'Sci-Fi',
+      rating: 4.5,
+      cover: 'https://via.placeholder.com/200x300?text=Foundation'
     }
   ]
 
@@ -64,23 +89,7 @@ function Home() {
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Popular Books</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {popularBooks.map(book => (
-              <div key={book.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition overflow-hidden">
-                <img src={book.cover} alt={book.title} className="w-full h-64 object-cover" />
-                <div className="p-4">
-                  <h3 className="font-bold text-lg text-gray-900 mb-1">{book.title}</h3>
-                  <p className="text-gray-600 text-sm mb-2">{book.author}</p>
-                  <div className="flex justify-between items-center mb-3">
-                    <span className="text-yellow-500">⭐ {book.rating}</span>
-                    <span className="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded">{book.category}</span>
-                  </div>
-                  <Link
-                    to={`/book/${book.id}`}
-                    className="block text-center bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 transition"
-                  >
-                    View Details
-                  </Link>
-                </div>
-              </div>
+              <BookCard key={book.id} book={book} />
             ))}
           </div>
         </div>
