@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import Navigation from '../components/Navigation'
@@ -6,11 +6,19 @@ import BookCard from '../components/BookCard'
 
 function BrowseBooks() {
   const { category } = useParams()
+  const [searchTerm, setSearchTerm] = useState('')
   const allBooks = useSelector(state => state.books.books)
   
-  const filteredBooks = category 
+  const filteredByCategory = category && category !== 'All'
     ? allBooks.filter(book => book.category === category)
     : allBooks
+
+  const filteredBooks = searchTerm
+    ? filteredByCategory.filter(book =>
+        book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        book.author.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : filteredByCategory
 
   const categories = ['Fiction', 'Non-Fiction', 'Sci-Fi', 'Mystery', 'Romance', 'Biography']
 
@@ -22,9 +30,20 @@ function BrowseBooks() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            {category ? `${category} Books` : 'All Books'}
+            {category && category !== 'All' ? `${category} Books` : 'All Books'}
           </h1>
           <p className="text-gray-600">Found {filteredBooks.length} book(s)</p>
+        </div>
+
+        {/* Search Bar */}
+        <div className="mb-8">
+          <input
+            type="text"
+            placeholder="Search by title or author..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+          />
         </div>
 
         {/* Category Filter */}
@@ -66,7 +85,7 @@ function BrowseBooks() {
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-xl text-gray-600">No books found in this category.</p>
+            <p className="text-xl text-gray-600">No books found matching your search.</p>
             <Link to="/" className="text-indigo-600 hover:text-indigo-800 mt-4 inline-block">
               ← Back to Home
             </Link>
